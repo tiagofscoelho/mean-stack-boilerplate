@@ -8,7 +8,7 @@ var sass = require('gulp-sass');
 
 
 gulp.task('sass:watch', function () {
-  gulp.watch('./app/components/**/*.scss', ['dev:sass']);
+  gulp.watch('app/components/**/*.scss', ['dev:sass']);
 });
 
 gulp.task('dev', function(){
@@ -16,14 +16,14 @@ gulp.task('dev', function(){
 });
 
 gulp.task('dev:sass', function () {
-  return gulp.src('./app/components/**/*.scss')
+  return gulp.src('app/components/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./app/styles'));
+    .pipe(gulp.dest('app/styles'));
 });
 
 gulp.task('dev:inject', function () {
-  return gulp.src('./app/index.html')
-    .pipe(inject(gulp.src(mainBowerFiles(), {read: false}), {name: 'bower'}))
-    .pipe(inject(gulp.src('./app/components/**/*.{css,js}', {read: false}), {relative: true}))
-    .pipe(gulp.dest('./app'));
+  return gulp.src('app/index.html')
+    .pipe(inject(gulp.src(mainBowerFiles(), {read: false})))
+    .pipe(inject(gulp.src(['app/components/**/*.js', 'app/styles/**/*.css'], {read: false}), {addRootSlash: false, ignorePath: "app"}))
+    .pipe(gulp.dest('app'));
 });

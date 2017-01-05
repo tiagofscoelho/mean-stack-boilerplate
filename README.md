@@ -24,7 +24,6 @@ To get you started you can simply clone the `mean-stack-boilerplate` repository 
 
 Clone the `mean-stack-boilerplate` repository using git:
 
-HTTP
 ```
 git clone https://github.com/tiagofscoelho/mean-stack-boilerplate.git
 cd mean-stack-boilerplate

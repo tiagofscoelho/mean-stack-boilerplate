@@ -22,7 +22,7 @@
     "update-deps": "npm update",
     "postupdate-deps": "bower update",
     "prestart": "npm install",
-    "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "start": "node server/server",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "preupdate-webdriver": "npm install",
@@ -30,9 +30,11 @@
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js",
     "sass": "gulp sass:watch",
-    "dev" : "gulp dev && npm start"
+    "dev": "gulp dev && npm start"
   },
   "dependencies": {
-    "gulp": "^3.9.1"
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "morgan": "^1.7.0"
   }
 }
